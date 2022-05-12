@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show anh</title>
+</head>
+<body>
+    <div align = "center" onload = "loadImg()">
+        <img width="500px" height="400px" id="img" src="https://vinmec-prod.s3.amazonaws.com/images/20200206_101125_023455_cach-xu-tri-khi-bi-.max-1800x1800.jpg" alt=""> <br>
+        <input type="button" name="next" value="Next" onclick="nextImg()">
+        <input type="button" name="prive" value="Prive" onclick="priveImg()">
+    </div>
+
+    <script>
+        var listImg = [];
+        var index = 1;
+        function loadImg() {
+            for (let i = 0; i < 5; i++) {
+                listImg[i] = "./img/" + i + ".jpg"
+            }
+        }
+        loadImg();
+        console.log(listImg);
+        function nextImg() {
+            index++;
+            if (index >= listImg.length ) {
+                index=1
+            }
+            var anh = document.getElementById("img");
+            anh.src = listImg[index]
+        }
+        function priveImg() {
+            index--;
+            if (index <= 1) {
+                index = 4
+            }
+            var anh = document.getElementById("img");
+            anh.src = listImg[index]
+        }
+
+    </script>
+
+</body>
+</html>

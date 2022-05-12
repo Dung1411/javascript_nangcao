@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 2</title>
+</head>
+<body>
+    <form name="myForm" align = "center" action="" onsubmit="return onHandleSubmit()">
+        <h2>Hóa Đơn</h2>
+        Khách hàng: <input type="text" name="name"> <span id="errorName"></span> <br> 
+        Loại hàng: <select name="category" onchange="load()">
+            <option value="0">Loại 1</option>
+            <option value="1">Loại 2</option>
+            <option value="2">Loại 3</option>
+        </select><br>
+        Đơn giá: <input type="number" name="price" value="500000">  </br>
+        Số lượng: <input type="number" name="number">  </br>
+        Thành tiền: <input type="number" name="sum">  </br>
+        Nơi nhận hàng: 
+        <input type="radio" name="address"  value="0" onchange="changeradio(this)"><span>Nội thành</span>
+        <input type="radio" name="address" value="1" onchange="changeradio(this)"><span>Ngoại thành</span>
+        <br>
+        Phí vận chuyển: <input type="number" id="transport"> </br>
+        <button>Đặt mua</button>
+    </form>
+    <script>
+        function onHandleSubmit() {
+            var status = false;
+            var name = document.myForm.name.value;
+            if (name.length < 1) {
+                document.getElementById("errorName").innerHTML = "Không được để trống";
+                status = false;
+                return false
+            }
+            var price = document.myForm.price.value;
+            if (name.length < 1) {
+                document.getElementById("errorName").innerHTML = "Không được để trống";
+                status = false;
+                return false
+            }
+        }
+        function load(){
+            var price = document.getElementsByName("price")[0]
+            var categoryValue = document.getElementsByName("category")[0]
+
+            switch (categoryValue.value) {
+                case "0":
+                    price.value = 500000
+                    break;
+                case "1":
+                    price.value = 300000
+
+                    break;
+                case "2":
+                    price.value = 100000
+                    break;
+            }
+        }
+        function changeradio(e) {
+           var check = e.checked;
+        //    console.log(check);
+            var address = document.getElementsByName("address");
+            var transport = document.getElementById("transport");
+
+            if (address[0].checked) {
+                transport.value = 0
+            }
+            if (address[1].checked) {
+                transport.value = 30000
+            }
+        }
+    </script>
+</body>
+</html>
