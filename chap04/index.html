@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function SinhVien(id, name, date,className, diemTB) {
+            this.id = id;
+            this.name = name;
+            this.date = date;
+            this.className = className;
+            this.diemTB = diemTB;
+
+            this.showInfo = function () {
+                console.log(this.diemTB);
+            }
+            this.tinhDiemTB = function () {
+                var tong = 0;
+                for (let i = 0; i < diemTB.length; i++) {
+                  tong+= this.diemTB[i].diem
+                }
+                return (tong/this.diemTB.length)
+            }
+        }
+        var student = new SinhVien('ph14568','lấm','14/11','web17101',[
+             { tenMon: "Js co ban",diem: 9},
+             { tenMon: "Js ",diem: 8},
+             { tenMon: "Js nang cao",diem: 7},
+
+            ]);
+        // student.showInfo();
+        console.log(student.tinhDiemTB());
+    </script>
+</body>
+</html>

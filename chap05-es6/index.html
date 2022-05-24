@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <script>
+        // biến cục bộ
+        var a = 1;
+        function x() {
+            var a =2; //kiểm tra 1 biến a có trong funtion hay chưa
+            console.log('a trong function', a); //2
+        }
+        x();
+        console.log('a ngoai function',a); //1
+
+        var b = 1;
+        function x() {
+            b =2; 
+            console.log('b trong function', b); //2
+        }
+        x();
+        console.log('b ngoai function',b); //2
+        
+        function y() {
+            const b =3;
+            console.log('b trong function ',b);
+        }
+        console.log(b); // báo lỗi vì b chưa đc khai báo bên ngoài
+
+        // với var có thể khai báo ghi đè giá trị, với let,const thì không thể thay đổi giá trị khi khai báo lại biến đã có
+        // có thể thay đổi thuộc tính trong biến const  
+    </script>
+
+    
+    <script type="module" src="index.js"></script>
+    
+</body>
+</html>

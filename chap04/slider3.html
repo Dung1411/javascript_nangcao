@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <div>
+            Nhập giải thưởng:
+            <input type="text" >
+            <button>Thêm giải thưởng</button>
+        </div>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Giai thuong</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
+
+    <script>
+        function VanDongVien(ma_van_dong_vien, ho_va_ten, ngay_sinh, giai_thuong) {
+            this.ma_van_dong_vien = ma_van_dong_vien;
+            this.ho_va_ten = ho_va_ten;
+            this.ngay_sinh = ngay_sinh;
+            this.giai_thuong = giai_thuong;
+
+            this.kiemTraDieuKien = function (ngay_to_chuc, tuoi_du_dk) {
+
+                    var ngaySinhMoment = moment(this.ngay_sinh, 'DD/MM/YYYY');
+                    var ngayToChucMoment = moment(ngay_to_chuc, 'DD/MM/YYYY');
+                    var tuoiDithi = ngayToChucMoment.diff(ngaySinhMoment, 'years');
+                    // console.log(tuoiDithi);
+                    if (tuoiDithi >= tuoi_du_dk) {
+                        return true;
+                    }
+                    return false;
+                },
+                this.danhSachGiaiThuong = function () {
+                    console.log(this.giai_thuong);
+                    var tbodyElement = document.querySelector('tbody');
+                    var tbodyContent = '';
+                    for (let i = 0; i < giai_thuong.length; i++) {
+                        tbodyContent += '<tr><td>' + this.giai_thuong[i] + '</td></tr>';
+                        
+                    }
+                    tbodyElement.innerHTML = tbodyContent
+                },
+                this.themGiaiThuong = function (giaiThuongMoi) {
+                    // var giaiThuong = document.querySelector('#giaiThuong');
+                    // giaiThuongMoi = giaiThuong.value;
+                    // console.log(giaiThuongMoi);
+                    this.giai_thuong.push(giaiThuongMoi);
+                }
+        }
+        var person = new VanDongVien('ma13', 'lấm', '14/11/1998', []);
+        console.log(person.kiemTraDieuKien('23/12/2022', 20));
+        person.themGiaiThuong('Sv gioi')
+        person.danhSachGiaiThuong();
+        person.themGiaiThuong('Sv good');
+        person.danhSachGiaiThuong();
+        // var kq = document.querySelector('.ketQua');
+        // kq.innerHTML = person.danhSachGiaiThuong();
+    </script>
+</body>
+
+</html>
