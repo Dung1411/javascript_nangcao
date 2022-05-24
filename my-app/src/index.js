@@ -1,15 +1,32 @@
+import Navigo from 'navigo';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import News from './pages/New';
 // import bootstrap;
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from './pages/Home'
+import About  from './pages/About';
 
-function render () {
-    document.querySelector('#header').innerHTML = '<button class="btn btn-primary">Test</button>';
+// khoi tao doi tuong routerx
+const router = new Navigo('/',{ linksSelector: 'a'})
+function render (content) {
+    // document.querySelector('#header').innerHTML = '<button class="btn btn-primary">Test</button>';
 
-    // document.querySelector('#header').innerHTML = Header.render();
-    document.querySelector('#content').innerHTML = '<div>Content</div>';
+    document.querySelector('#header').innerHTML = Header.render();
+    document.querySelector('#content').innerHTML = content;
     document.querySelector('#footer').innerHTML = Footer.render();
 }
+
+router.on({
+    '/': () => render(Home.render()),
+    '/about': () => render(About.render()),
+    '/news': () => render(News.render()),
+    '/products': () => render(),
+})
+
+router.resolve();
+
+
 
 // arrow function: const ten_ham = () => {};
 const arrowRender = () => {
@@ -28,4 +45,4 @@ const sum2 = (a, b) => a+b; // nếu chỉ có return
 
 const display = a => console.log(a); // nếu chỉ có 1 tham số
 
-render();
+// render();
