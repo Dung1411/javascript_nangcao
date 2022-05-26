@@ -1,10 +1,10 @@
-
+import news from "../news-data";
 
 const News = {
     render: () =>`
         
     <div role="article" tabindex="0" class="focus:outline-none container mx-auto py-8 px-4">
-        <h1 tabindex="0"  class="focus:outline-none text-5xl text-center f-m-w text-indigo-700 dark:text-indigo-400 font-bold pt-0">Our Blogs</h1>
+        <h1 tabindex="0"  class="focus:outline-none text-5xl text-center f-m-w text-indigo-700 dark:text-indigo-400 font-bold pt-0">Our News</h1>
         <div class="pt-14 xl:px-0 px-4">
             <div class="w-full lg:flex">
                 <div class="lg:w-1/2">
@@ -20,36 +20,24 @@ const News = {
                     </div>
                 </div>
                 <div class="lg:w-1/2 lg:ml-8">
-                    <div class="lg:flex items-start mb-8">
-                        <img tabindex="0" role="img" aria-label="bag on a table"  alt="bag on table" src="https://cdn.tuk.dev/assets/components/111220/blg-17/blog2.png" class="focus:outline-none w-full" />
-                        <div class="lg:ml-6">
-                            <h3 tabindex="0" class="focus:outline-none dark:text-white f-m-m text-2xl font-semibold leading-7 lg:mt-0 mt-8">A Broken Backpack</h1>
-                            <p tabindex="0" class="focus:outline-none dark:text-white text-base f-m-m leading-loose mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has survived not only five centuries. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            <div class="mt-4">
-                                <a class="hover:text-indigo-900 dark:hover:text-indigo-500 text-indigo-700 dark:text-indigo-400 underline text-base font-semibold f-m-m" role="link" href="javascript:void(0)">Read More</a>
+                        ${news.map((tin) => (
+                            `
+                            <div class="lg:flex items-start mb-8">
+                                <img tabindex="0" role="img" aria-label="bag on a table"  alt="bag on table" src="${tin.img}" class="focus:outline-none w-full" />
+                                <div class="lg:ml-6">
+                                    <h3 tabindex="0" class="focus:outline-none dark:text-white f-m-m text-2xl font-semibold leading-7 lg:mt-0 mt-8">${tin.title}</h1>
+                                    <p tabindex="0" class="focus:outline-none dark:text-white text-base f-m-m leading-loose mt-2">${tin.content}</p>
+                                    <div class="mt-4">
+                                        <a class="hover:text-indigo-900 dark:hover:text-indigo-500 text-indigo-700 dark:text-indigo-400 underline text-base font-semibold f-m-m" role="link" href="javascript:void(0)">Read More</a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="lg:flex items-start mb-8">
-                        <img tabindex="0" role="img" aria-label="car in desert" alt="car in desert" src="https://cdn.tuk.dev/assets/components/111220/blg-17/blog3.png" class="focus:outline-none w-full" />
-                        <div class="lg:ml-6">
-                            <h3  tabindex="0" class="focus:outline-none dark:text-white f-m-m text-2xl font-semibold leading-7 lg:mt-0 mt-8">My life’s a Movie</h1>
-                            <p tabindex="0" class="focus:outline-none dark:text-white text-base f-m-m leading-loose mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has survived not only five centuries. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            <div class="mt-4">
-                                <a class="hover:text-indigo-900 dark:hover:text-indigo-500 text-indigo-700 dark:text-indigo-400 underline text-base font-semibold f-m-m" role="link" href="javascript:void(0)">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="lg:flex items-start mb-8">
-                        <img tabindex="0" role="img" aria-label="man with camel" alt="man with camel" src="https://cdn.tuk.dev/assets/components/111220/blg-17/blog4.png" class="focus:outline-none w-full" />
-                        <div class="lg:ml-6">
-                            <h3 tabindex="0" class="focus:outline-none dark:text-white -m-m text-2xl font-semibold leading-7 lg:mt-0 mt-8">Lilii’s Travel Plans</h1>
-                            <p tabindex="0" class="focus:outline-none dark:text-white text-base f-m-m leading-loose mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has survived not only five centuries. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            <div class="mt-4">
-                                <a class="hover:text-indigo-900 dark:hover:text-indigo-500 text-indigo-700 dark:text-indigo-400 underline text-base font-semibold f-m-m" role="link" href="javascript:void(0)">Read More</a>
-                            </div>
-                        </div>
-                    </div>
+                            `
+                            ))
+                        }
+                    
+                 
+                   
                 </div>
             </div>
         </div>
