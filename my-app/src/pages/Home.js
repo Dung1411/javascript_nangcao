@@ -1,6 +1,9 @@
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+
 const Home = {
   render: () => `
-        
+    <div>${Header.render()}</div>
     <div class="mx-auto container px-6 xl:px-0 py-12">
             <div class="flex flex-col"> 
                 <div class="flex flex-col justify-center">
@@ -233,7 +236,7 @@ const Home = {
                 </div>
             </div>
         </div>
-
+        <div>${Footer.render()}</div>
 
     `,
 };

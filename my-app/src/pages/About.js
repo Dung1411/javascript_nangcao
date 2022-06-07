@@ -1,6 +1,9 @@
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+
 const About = {
     render: () => `
-        
+    <div>${Header.render()}</div>
     <div class="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4">
         <div class="lg:w-10/12 w-full">
             
@@ -106,6 +109,8 @@ const About = {
                 </div>
             </div>
     </div>
+    <div>${Footer.render()}</div>
+
    
 
     `

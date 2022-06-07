@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite --open",
-    "start:server": "json-server-auth --watch db.json --port 3001",
+    "start:server": "json-server-auth --watch db.json --port 3002",
     "build": "vite build",
     "preview": "vite preview"
   },

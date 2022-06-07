@@ -1,8 +1,10 @@
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 import news from "../news-data";
 
 const News = {
     render: () =>`
-        
+    <div>${Header.render()}</div>
     <div role="article" tabindex="0" class="focus:outline-none container mx-auto py-8 px-4">
         <h1 tabindex="0"  class="focus:outline-none text-5xl text-center f-m-w text-indigo-700 dark:text-indigo-400 font-bold pt-0">Our News</h1>
         <div class="pt-14 xl:px-0 px-4">
@@ -45,7 +47,7 @@ const News = {
             <button class="border border-indigo-700 focus:bg-gray-200 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 border-2 lg:text-2xl md:text-lg text-sm rounded f-m-m font-semibold text-indigo-700 focus:outline-none lg:px-12 px-6 lg:py-6 py-3 xl:leading-4 hover:bg-gray-200">Browse More</button>
         </div>
     </div>   
-
+    <div>${Footer.render()}</div>
     `
 };
 export default News;

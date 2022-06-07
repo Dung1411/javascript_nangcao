@@ -1,10 +1,12 @@
-import { getAll } from "../api/product";
+import { getAllST } from "../api/student";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-const ProductPage = {
+
+
+const ListStudent = {
     async render(){
         // const  data = await (await fetch('https://6291d3789d159855f080b433.mockapi.io/products')).json();
-        const {data} = await getAll();
+        const {data} = await getAllST();
         return `
         <div>${Header.render()}</div>
         <div tabindex="0" class="focus:outline-none">
@@ -16,7 +18,7 @@ const ProductPage = {
                               `
                                 <div tabindex="0" class="focus:outline-none mx-2 w-72 xl:mb-0 mb-8">
                                     <div>
-                                    <a href="/products/${item.id}" data-navigo><img alt="girl texting" src="${item.img}" class="focus:outline-none w-full h-44" /></a>
+                                    <a href="/students/${item.id}" data-navigo><img alt="girl texting" src="${item.avatar}" class="focus:outline-none w-full h-44" /></a>
                                     </div>
                                     <div class="bg-white dark:bg-gray-800">
                                         <div class="flex items-center justify-between px-4 pt-4">
@@ -29,10 +31,10 @@ const ProductPage = {
                                         </div>
                                         <div class="p-4">
                                             <div class="flex items-center">
-                                                <a href="/products/${item.id}" data-navigo><h2 tabindex="0" class="focus:outline-none text-lg dark:text-white font-semibold">${item.name}</h2></a>
+                                                <a href="/students/${item.id}" data-navigo><h2 tabindex="0" class="focus:outline-none text-lg dark:text-white font-semibold">${item.name}</h2></a>
                                                 <p tabindex="0" class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 pl-5">4 days ago</p>
                                             </div>
-                                            <p tabindex="0" class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 mt-2">${item.desc}</p>
+                                            <p tabindex="0" class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 mt-2">${item.masv}</p>
                                             <div class="flex mt-4">
                                                 <div>
                                                     <p tabindex="0" class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 px-2 bg-gray-200 dark:bg-gray-700 py-1">12 months warranty</p>
@@ -43,7 +45,7 @@ const ProductPage = {
                                             </div>
                                             <div class="flex items-center justify-between py-4">
                                                 <h2 tabindex="0" class="focus:outline-none text-indigo-700 text-xs font-semibold">Việt Nam, Hà Nội</h2>
-                                                <h3 tabindex="0" class="focus:outline-none text-indigo-700 text-xl font-semibold">${Number(item.price).toLocaleString('it-IT', {style : 'currency', currency : 'VND'})}</h3>
+                                               
                                             </div>
                                         </div>
                                     </div>
@@ -59,4 +61,4 @@ const ProductPage = {
     }
 }
 
-export default ProductPage;
+export default ListStudent;

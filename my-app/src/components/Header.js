@@ -6,6 +6,11 @@ const Header = {
     // render: (name = 'WE17101') => (`<div>${name}</div>`)
     // sau mũi tên là ngoặc tròn -> return kết quả
     render(){
+        const IUser = JSON.parse(localStorage.getItem("user"))
+        function btnLogout(){ 
+            console.log(2);
+        }
+        console.log(IUser);
         return `
             <div class="relative bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6">
@@ -51,8 +56,13 @@ const Header = {
                     </div>
                 </nav>
                 <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-                    <a href="#" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"> Sign in </a>
-                    <a href="#" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"> Sign up </a>
+                    ${IUser ? 
+                        `<span onCLick="${btnLogout}" data-navigo class="logout ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">Logout </span>`
+                        :
+                        `<a href="/signin" data-navigo class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"> Sign in </a>
+                         <a href="/signup" data-navigo class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"> Sign up </a>` 
+                        }
+                    
                 </div>
                 
             </div>
@@ -63,6 +73,14 @@ const Header = {
        
         
         `
+    },
+    afterRender(){
+        console.log(1);
+        const btnLogout = document.querySelector('.logout')
+        btnLogout.addEventListener('click',function(){
+            localStorage.removeItem("user")
+        })
+
     }
 };
 
