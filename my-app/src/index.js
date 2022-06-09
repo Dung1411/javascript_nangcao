@@ -61,9 +61,7 @@ const print = async (content, id) => {
 // })
 
 router.on({
-    "/": () =>{
-      print(Home)
-    },
+    "/": () =>{print(Home)},
     
     "/products": () =>{
       print(ProductPage)

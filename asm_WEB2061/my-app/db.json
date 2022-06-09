@@ -1,0 +1,102 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "books": [
+    {
+      "createdAt": "2022-06-08T14:40:30.774Z",
+      "name": "Norman Feeney",
+      "img": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/98.jpg",
+      "price": 51000,
+      "sale_price": 38000,
+      "category_id": 15,
+      "id": "1"
+     },
+     {
+      "createdAt": "2022-06-08T17:26:44.977Z",
+      "name": "Jacqueline Von",
+      "img": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/892.jpg",
+      "price": 300000,
+      "sale_price": 270000,
+      "category_id": 69,
+      "id": "2"
+     },
+     {
+      "createdAt": "2022-06-08T02:14:31.668Z",
+      "name": "Geoffrey Weissnat",
+      "img": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/946.jpg",
+      "price": 64000,
+      "sale_price": 50000,
+      "category_id": 27,
+      "id": "3"
+     },
+     {
+      "createdAt": "2022-06-08T05:27:44.236Z",
+      "name": "Mr. Marlene Padberg",
+      "img": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/287.jpg",
+      "price": 780000,
+      "sale_price": 700000,
+      "category_id": 94,
+      "id": "4"
+     },
+     {
+      "createdAt": "2022-06-08T22:21:20.486Z",
+      "name": "Melody Bahringer",
+      "img": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/292.jpg",
+      "price": 90000,
+      "sale_price": 68000,
+      "category_id": 11,
+      "id": "5"
+     },
+     {
+      "createdAt": "2022-06-08T09:52:50.177Z",
+      "name": "Kyle Huel",
+      "img": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1219.jpg",
+      "price": 21000,
+      "sale_price": 15000,
+      "category_id": 71,
+      "id": "6"
+     },
+     {
+      "createdAt": "2022-06-08T07:56:13.298Z",
+      "name": "Edgar Franey",
+      "img": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/219.jpg",
+      "price": 100000,
+      "sale_price": 85000,
+      "category_id": 87,
+      "id": "7"
+     },
+     {
+      "createdAt": "2022-06-08T05:54:27.427Z",
+      "name": "Andre Satterfield",
+      "img": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/606.jpg",
+      "price": 42000,
+      "sale_price": 35000,
+      "category_id": 27,
+      "id": "8"
+     },{
+      "createdAt": "2022-06-08T05:54:27.427Z",
+      "name": "Andre Satterfield",
+      "img": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/606.jpg",
+      "price": 42000,
+      "sale_price": 35000,
+      "category_id": 27,
+      "id": "9"
+     },{
+      "createdAt": "2022-06-08T05:54:27.427Z",
+      "name": "Andre Satterfield",
+      "img": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/606.jpg",
+      "price": 42000,
+      "sale_price": 35000,
+      "category_id": 27,
+      "id": "10"
+     }
+  ],
+  "users": {
+    "name": "typicode"
+  }
+}
