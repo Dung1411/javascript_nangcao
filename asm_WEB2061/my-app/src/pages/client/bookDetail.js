@@ -1,7 +1,9 @@
+import { reRender } from "../../utils/reRender";
 import { get } from "../../api/books";
 import Footer from "../../components/footer";
 import Header from "../../components/header";
-
+import { $ } from "../../utils/selector";
+import { addToCart } from "../../utils/cart";
 
 const BookDetail ={
     async render(id){
@@ -29,17 +31,19 @@ const BookDetail ={
                         <div class="flex flex-row justify-between">
                             <p class="font-medium text-base leading-4 text-gray-600 ">Select quantity</p>
                             <div class="flex">
-                                <span onclick="minus()" class="focus:outline-none dark:text-white focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer border border-gray-300 border-r-0 w-7 h-7 flex items-center justify-center pb-1">-</span>
-                                <input id="counter" aria-label="input" class="border dark:text-white border-gray-300 dark:bg-transparent h-full text-center w-14 pb-1" type="text" value="1" />
-                                <span onclick="plus()" class="focus:outline-none dark:text-white focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer border border-gray-300 border-l-0 w-7 h-7 flex items-center justify-center pb-1">+</span>
+                                <input type='number' id="inputQty" value='1' min='1' />
                             </div>
                         </div>
                     
                         
                         <hr class="bg-gray-200 w-full mt-4" />
                     </div>
+                    <div >
+                  
+                        <button class="addToCart focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-5 lg:mt-12 mt-6 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100" id="btnAddToCart">Add to shopping bag</button>
+
+                    </div>
     
-                    <button class="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-5 lg:mt-12 mt-6 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100">Add to shopping bag</button>
                 </div>
     
                 <!-- Preview Images Div For larger Screen-->
@@ -85,7 +89,20 @@ const BookDetail ={
         <div>${Footer.render()}</div>
 
         `
-    }
+    },
+    afterRender(id) {
+        // Header.afterRender();
+        // console.log(id);
+        const btnAddToCart = document.querySelector('.addToCart');
+        btnAddToCart.addEventListener("click", async() => {
+            const { data } = await get(id);
+            // console.log(data);
+            const quantity = document.querySelector('#inputQty')
+            addToCart({...data, quantity: + quantity.value }, () => {
+                alert("Thêm thành công !")
+            });
+        });
+    },
 }
 
 export default BookDetail;

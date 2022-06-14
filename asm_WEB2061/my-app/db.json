@@ -2,101 +2,113 @@
   "categories": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "name": "Sách toán học "
+    },
+    {
+      "id": 2,
+      "name": "Sách văn học"
+    },
+    {
+      "id": 3,
+      "name": "Sách tin học"
+    },
+    {
+      "id": 4,
+      "name": "Sách giáo khoa"
     }
   ],
   "books": [
     {
-      "createdAt": "2022-06-08T14:40:30.774Z",
-      "name": "Norman Feeney",
-      "img": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/98.jpg",
-      "price": 51000,
-      "sale_price": 38000,
-      "category_id": 15,
-      "id": "1"
-     },
-     {
       "createdAt": "2022-06-08T17:26:44.977Z",
       "name": "Jacqueline Von",
       "img": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/892.jpg",
       "price": 300000,
       "sale_price": 270000,
-      "category_id": 69,
-      "id": "2"
-     },
-     {
-      "createdAt": "2022-06-08T02:14:31.668Z",
-      "name": "Geoffrey Weissnat",
-      "img": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/946.jpg",
-      "price": 64000,
-      "sale_price": 50000,
-      "category_id": 27,
-      "id": "3"
-     },
-     {
-      "createdAt": "2022-06-08T05:27:44.236Z",
-      "name": "Mr. Marlene Padberg",
-      "img": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/287.jpg",
-      "price": 780000,
-      "sale_price": 700000,
-      "category_id": 94,
-      "id": "4"
-     },
-     {
-      "createdAt": "2022-06-08T22:21:20.486Z",
+      "category_id": 1,
+      "id": 1
+    },
+    {
+      "id": 4,
       "name": "Melody Bahringer",
-      "img": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/292.jpg",
-      "price": 90000,
-      "sale_price": 68000,
-      "category_id": 11,
-      "id": "5"
-     },
-     {
+      "img": "http://res.cloudinary.com/dbpw1enlu/image/upload/v1655169770/ep3h6pr4ugyhztbxwxct.jpg",
+      "price": "90000",
+      "sale_price": "68000",
+      "category_id": "3"
+    },
+    {
       "createdAt": "2022-06-08T09:52:50.177Z",
       "name": "Kyle Huel",
       "img": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1219.jpg",
       "price": 21000,
       "sale_price": 15000,
-      "category_id": 71,
-      "id": "6"
-     },
-     {
+      "category_id": 4,
+      "id": 5
+    },
+    {
       "createdAt": "2022-06-08T07:56:13.298Z",
       "name": "Edgar Franey",
       "img": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/219.jpg",
       "price": 100000,
       "sale_price": 85000,
-      "category_id": 87,
-      "id": "7"
-     },
-     {
+      "category_id": 2,
+      "id": 6
+    },
+    {
       "createdAt": "2022-06-08T05:54:27.427Z",
       "name": "Andre Satterfield",
       "img": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/606.jpg",
       "price": 42000,
       "sale_price": 35000,
-      "category_id": 27,
-      "id": "8"
-     },{
-      "createdAt": "2022-06-08T05:54:27.427Z",
-      "name": "Andre Satterfield",
-      "img": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/606.jpg",
-      "price": 42000,
-      "sale_price": 35000,
-      "category_id": 27,
-      "id": "9"
-     },{
-      "createdAt": "2022-06-08T05:54:27.427Z",
-      "name": "Andre Satterfield",
-      "img": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/606.jpg",
-      "price": 42000,
-      "sale_price": 35000,
-      "category_id": 27,
-      "id": "10"
-     }
+      "category_id": 2,
+      "id": 7
+    },
+    {
+      "name": "sách mới",
+      "img": "http://res.cloudinary.com/dbpw1enlu/image/upload/v1654763389/ew8zvwsdoo4t3dsflg45.jpg",
+      "price": "250000",
+      "sale_price": "230000",
+      "category_id": 3,
+      "id": 8
+    },
+    {
+      "name": "tphone1",
+      "img": "http://res.cloudinary.com/dbpw1enlu/image/upload/v1654933087/qxggajgvyvfqniud8wqf.jpg",
+      "price": "25000000",
+      "sale_price": "34000",
+      "category_id": 1,
+      "id": 9
+    },
+    {
+      "name": "Le  Thi Dung",
+      "img": "http://res.cloudinary.com/dbpw1enlu/image/upload/v1655169796/kzho0xorjkrmmtxqpmpz.jpg",
+      "price": "789",
+      "sale_price": "890",
+      "category_id": "3",
+      "id": 10
+    }
   ],
-  "users": {
-    "name": "typicode"
-  }
+  
+  "users": [
+    {
+      "id": 1,
+      "name": "adminhihi@#gmail.com",
+      "email": "dungltph14568@fpt.edu.vn",
+      "password": 12312,
+      "role": 1
+    },
+    {
+      "email": "bachtuyet@gmail.com",
+      "password": "$2a$10$6wnN/Las9gW9L09vKP9XS.7oY82QP579P1kr3KStyI8q4AutHFCPi",
+      "username": "Bạch tuyết",
+      "role": 0,
+      "id": 2
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$kQzl4qehi.D3W2dKYSjuOuA8EAO9fJWGULFyYfC779j9nfb38mUf6",
+      "username": "admin",
+      "role": 1,
+      "id": 3
+    }
+  ]
 }

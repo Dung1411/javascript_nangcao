@@ -1,8 +1,17 @@
 import instance from "./config";
 
-export const getAll =()=>{
-    const url = `/books`;
-    return instance.get(url);
+export const getAll =(params)=>{
+    let url = `/books`;
+    // const params = {
+    //     category_id : null,
+    //     _sort : null,
+    //     _order : null,
+    // }
+    // /books
+    // params no se chuyen object thanh ?_sort=desc&_order=2
+    return instance.get(url,{
+        params : params
+    });
 } 
 export const get = (id) =>{
     const url = `/books/${id}`;
@@ -20,3 +29,4 @@ export const update = (post) => {
     const url = `/books/${post.id}`;
     return instance.put(url, post)
 }
+
