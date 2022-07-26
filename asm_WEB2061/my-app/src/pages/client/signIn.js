@@ -48,11 +48,17 @@ const Signin = {
               email: email,
               password: password
             })
-            localStorage.setItem('user', JSON.stringify(response.data.user))
-            alert("Xin chào : " + JSON.parse(localStorage.getItem('user')).username)
-            const users = JSON.parse(localStorage.getItem('user'))
-            console.log(users);
-            if(users.role === 1){
+            localStorage.setItem('user', JSON.stringify({token : response.data.accessToken,userId :response.data.user.id }))
+            alert("Xin chào : " + response.data.user.username)
+            // const users = JSON.parse(localStorage.getItem('user'))
+            // console.log(users);
+            /*"user": {
+              "email": "admin@gmail.com",
+              "username": "admin",
+              "role": 1,
+              "id": 3
+            } */
+            if(response.data.user.role === 1){
                 window.location="/admin";
             } else {
                 window.location="/";
@@ -67,3 +73,4 @@ const Signin = {
     }
 }
 export default Signin 
+// hay la lam nut  dang xuat rieng

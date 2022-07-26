@@ -1,9 +1,12 @@
 import { get, update } from "../../../api/books";
 import axios from "axios";
+import { getAllCate } from "../../../api/categories";
 
 const ProductEdit ={
     async render(id){
         const {data} = await get(id);
+        const {data : cate} = await getAllCate();
+        console.log(cate);
        return `    
        <div class="w-full h-full bg-gray-200">
         <div class="flex flex-no-wrap">x    
@@ -277,7 +280,7 @@ const ProductEdit ={
                                     </div>
                                     <div>
                                         <label for="category_id" class="block mb-2 text-lg font-serif">Category:</label>
-                                        <input type="text" placeholder="price" id="category_id" class=" mt-2 outline-none py-1 px-2 text-md border-2 rounded-md w-full" value="${data.category_id}"/>
+                                        <input type="text" placeholder="price" id="category_id" class=" mt-2 outline-none py-1 px-2 text-md border-2 rounded-md w-full" value="${data.categoryId}"/>
                                     </div>
                                     <button class="btnUpdate px-6 py-2 mx-auto block rounded-md text-lg font-semibold text-indigo-100 bg-indigo-600  ">UPDATE PRODUCTS</button>
                                     </div>
@@ -330,7 +333,7 @@ const ProductEdit ={
         const name = document.querySelector('#name').value
         const sale_price = document.querySelector('#sale_price').value
         const price = document.querySelector('#price').value
-        const category_id = document.querySelector('#category_id').value
+        const categoryId = document.querySelector('#category_id').value
 
         if(name == "" || price == "" || sale_price == "" ){
           alert('Vui lòng nhập đầy đủ thông tin!')
@@ -341,7 +344,7 @@ const ProductEdit ={
             img: img,
             price: price,
             sale_price: sale_price,
-            category_id : category_id
+            categoryId : categoryId
 
           }).then(() =>{
             alert('Cập nhật sản phẩm mới thành công !')

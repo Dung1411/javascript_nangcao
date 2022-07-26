@@ -6,7 +6,7 @@ const BookList ={
     async render() {
         const {data} = await getAll();
         return `
-        ${Header.render()}
+        ${await Header.render()}
         <div class="container mx-auto">
             <div class="mt-8">
                 <section>

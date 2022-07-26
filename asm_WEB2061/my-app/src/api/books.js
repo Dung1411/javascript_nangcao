@@ -29,4 +29,7 @@ export const update = (post) => {
     const url = `/books/${post.id}`;
     return instance.put(url, post)
 }
-
+export const getBookCate =()=>{
+    const url = `http://localhost:3006/books?_expand=category`
+    return instance.get(url)
+}

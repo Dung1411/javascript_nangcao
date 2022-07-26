@@ -1,4 +1,5 @@
 import Navigo from "navigo";
+import Header from "./src/components/header";
 import Categories from "./src/pages/admin/categories/categories";
 import CategoryAdd from "./src/pages/admin/categories/categoryAdd";
 import CategoryEdit from "./src/pages/admin/categories/categoryEdit";
@@ -15,11 +16,12 @@ import cartPage from "./src/pages/client/cart";
 import HomePage from "./src/pages/client/homePage";
 import Signin from "./src/pages/client/signIn";
 import Signup from "./src/pages/client/signup";
+
 const router = new Navigo("/", {linksSelector: "a", hash: true});
-const print =async (content, id)=>{
-  document.getElementById("app").innerHTML= await content.render(id);
+const print = async (content,id)=>{
+  document.getElementById("app").innerHTML=await content.render(id);
   if (content.afterRender) content.afterRender(id);
-};
+}
 
 router.on({
   "/":()=> {print(HomePage)},

@@ -1,10 +1,14 @@
-import { getAll, remove } from "../../../api/books";
+import { getAll, getBookCate, remove } from "../../../api/books";
 import { reRender } from "../../../utils/reRender";
 
 
 const ProductList ={
     async render(){
-        const {data} = await getAll();
+        // const {data} = await getAll();
+        const  {data}= await getBookCate()
+        console.log(data);
+   
+     
        return `    
        <div class="w-full h-full bg-gray-200">
         <div class="flex flex-no-wrap">x    
@@ -252,6 +256,7 @@ const ProductList ={
                                         <th class="font-normal text-left pl-12">Price</th>
                                         <th class="font-normal text-left pl-20">Sale_price</th>
                                         <th class="font-normal text-left pl-20">Img</th>
+                                        <th class="font-normal text-left pl-20">CreatedAt</th>
                                         <th class="font-normal text-left pl-20">Category</th>
                                         <th class="font-normal text-left pl-16">Act</th>
                                     </tr>
@@ -270,17 +275,21 @@ const ProductList ={
                                             </div>
                                         </td>
                                         <td class="pl-12">
-                                            <p class="font-medium">${item.price}</p>
+                                            <p class="font-medium">${Number(item.price).toLocaleString("it-IT", { style: "currency", currency: "VND" })}</p>
                                         </td>
                                         <td class="pl-20">
-                                            <p class="font-medium md-100 break-words">${item.sale_price}</p>
+                                            <p class="font-medium md-100 break-words">${Number(item.sale_price).toLocaleString("it-IT", { style: "currency", currency: "VND" })}</p>
                                         </td>
                                         <td class="pl-20">
                                             <p class="font-medium"><img class="w-20" src="${item.img}" alt=""></p>
                                         </td>
-                                       
                                         <td class="pl-20">
-                                            <p class="font-medium md-100 break-words">${item.category_id} </p>
+
+                                            <p class="font-medium md-100 break-words">${new Date(item.createdAt).toLocaleDateString()} </p>
+                                        </td>
+                                        <td class="pl-20">
+
+                                            <p class="font-medium md-100 break-words">${item.category.name} </p>
                                         </td>
                                         <td class="pl-16">
                                             <button  class="btn btn-danger btn-delete" data-id=${item.id}>Delete</button> |

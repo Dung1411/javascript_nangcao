@@ -260,11 +260,11 @@ const BookAdd = {
                                     </div>
                                     <div>
                                         <label for="price" class="text-lx font-serif">Price:</label>
-                                        <input type="text" placeholder="price" id="price" class=" mt-2 outline-none py-1 px-2 text-md border-2 rounded-md w-full" />
+                                        <input type="number" placeholder="price" id="price" class=" mt-2 outline-none py-1 px-2 text-md border-2 rounded-md w-full" />
                                     </div>
                                     <div>
                                         <label for="sale_price" class="text-lx font-serif">Sale_Price:</label>
-                                        <input type="text" placeholder="price" id="sale_price" class=" mt-2 outline-none py-1 px-2 text-md border-2 rounded-md w-full" />
+                                        <input type="number" placeholder="price" id="sale_price" class=" mt-2 outline-none py-1 px-2 text-md border-2 rounded-md w-full" />
                                     </div>
                                     <div>
                                         <label for="category_id" class="text-lx font-serif">Category:</label>
@@ -319,7 +319,8 @@ const BookAdd = {
               const name = document.querySelector('#name').value
               const sale_price = document.querySelector('#sale_price').value
               const price = document.querySelector('#price').value
-              const category_id = document.querySelector('#category_id').value
+              const categoryId = document.querySelector('#category_id').value
+              const createdAt = new Date().getTime()
             //   const createdAt = new Date()
               
               if(name == "" || price == "" || sale_price == "" || category_id=="" ){
@@ -330,7 +331,8 @@ const BookAdd = {
                   img: response.data.url,
                   price: price,
                   sale_price: sale_price,
-                  category_id: category_id
+                  categoryId: categoryId,
+                  createdAt: createdAt
                 }).then(() =>{
                   alert('Thêm sản phẩm mới thành công !')
                   window.location = '/admin/books'

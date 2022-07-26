@@ -7,17 +7,17 @@ import Footer from "../../components/footer";
 
 /* eslint-disable eol-last */
 const cartPage = {
-        render() {
+       async render() {
             let cart = [];
             if (localStorage.getItem("cart")) {
                 cart = JSON.parse(localStorage.getItem("cart"));
             }
             let totalProducts = 0
             cart.forEach(item => {
-                totalProducts += Number(item.price) * Number(item.quantity)
+                totalProducts += Number(item.sale_price) * Number(item.quantity)
             })
             return /* html */ `
-            <div id="header">${Header.render()} </div>
+            <div id="header">${await Header.render()} </div>
             <main class=" mr-[400px] ml-[400px] mt-[50px]">
               <div class="flex justify-between"> 
                 <div class="boxleft1">
@@ -41,9 +41,10 @@ const cartPage = {
                                         <div class="flex justify-between text-base font-medium text-gray-900">
                                           <h3>
                                             <a href="/books/${item.id}"> ${item.name} </a>
-                                            <span> ${item.price} </span>
+                                            <br>
+                                            <span> ${Number(item.sale_price).toLocaleString("it-IT", { style: "currency", currency: "VND" })}</span>
                                           </h3>
-                                          <p class="ml-4">${(Number(item.price)*Number(item.quantity)).toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}</p>
+                                          <p class="ml-4">${(Number(item.sale_price)*Number(item.quantity)).toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}</p>
                                         </div>
                                       </div>
                                       <div class="flex-1 flex items-end justify-between text-sm">

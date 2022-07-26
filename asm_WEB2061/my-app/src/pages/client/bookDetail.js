@@ -10,7 +10,7 @@ const BookDetail ={
         const {data} = await get(id);
         return `
             
-        <div>${Header.render()}</div>
+        <div>${await Header.render()}</div>
         <div class="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4">
             <div class="flex justify-center items-center lg:flex-row flex-col gap-8">
                 <!-- Description Div -->
@@ -24,8 +24,8 @@ const BookDetail ={
                     <img class="hidden dark:block" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/productDetail4-svg1dark.svg" alt="stars">
                     </div>
     
-                    <p class="font-normal text-base leading-6 text-gray-600  mt-7">Price: ${data.price}</p>
-                    <p class="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 mt-6 text-red-600 dark:text-white">SALE: ${data.sale_price}</p>
+                    <p class="font-normal text-base leading-6 text-gray-600  mt-7">Price: ${Number(data.sale_price).toLocaleString("it-IT", { style: "currency", currency: "VND" })}</p>
+                    <p class="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 mt-6 text-red-600 dark:text-white">SALE: ${Number(data.sale_price).toLocaleString("it-IT", { style: "currency", currency: "VND" })}</p>
     
                     <div class="lg:mt-11 mt-10">
                         <div class="flex flex-row justify-between">

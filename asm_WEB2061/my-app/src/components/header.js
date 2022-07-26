@@ -1,5 +1,13 @@
+import { getMe } from './../api/users';
+
 const Header = {
-    render(){
+    async render(){
+        const token = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
+        if(token){
+            var { data: profile} = await getMe(token.userId,token.token);
+        }
+        // console.log(profile);
+
         return `
         <div>       
             <nav class="bg-white shadow">
@@ -13,7 +21,7 @@ const Header = {
                             <a class="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0" href="/books">Books</a>
                             <a class="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0" href="/">Blogs</a>
                             <a class="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0" href="/">Contact</a>
-                            <a class="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0" href="/admin">Admin</a>
+                  
                         </div>
                         <div class="flex md:hidden">
                             <button type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu">
@@ -26,12 +34,49 @@ const Header = {
                         
                         <div class="md:flex items-center">
                         <div class="flex flex-col-5 md:flex-row md:mx-8">
-                        
-                            <div class="hidden sm:flex flex-row space-x-2">
-                            <div> 
-                            <a href="/signup" data-navigo class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Sign Up</a>
-                            <a href="/signin" data-navigo class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-2 py-2 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Sign In</a></div>
-                            </div>
+                            ${profile ? 
+                                `<div class="flex items-center relative cursor-pointer" onclick="dropdownHandler(this)">
+                                    <div class="rounded-full">
+                                        <ul class="p-2 w-full border-r bg-white absolute rounded left-0 shadow mt-12 sm:mt-16 hidden">
+                                            <li class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center">
+                                                <div class="flex items-center">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z"></path>
+                                                        <circle cx="12" cy="7" r="4"></circle>
+                                                        <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                                                    </svg>
+                                                    <a href="javascript:void(0)" class="text-sm ml-2">My Profile</a>
+                                                </div>
+                                            </li>
+                                            <li class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mt-2">
+                                                <div class="flex items-center">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z"></path>
+                                                        <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path>
+                                                        <path d="M7 12h14l-3 -3m0 6l3 -3"></path>
+                                                    </svg>
+                                                    <a href="javascript:void(0)" class="text-sm ml-2">Sign out</a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <div class="relative">
+                                            <img class="rounded-full h-10 w-10 object-cover" src="https://tuk-cdn.s3.amazonaws.com/assets/components/sidebar_layout/sl_1.png" alt="display avatar" role="img">
+                                            <div class="w-2 h-2 rounded-full bg-green-400 border border-white absolute inset-0 mb-0 mr-0 m-auto"></div>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-800 text-sm mx-3">${profile.username}</p>
+                                    
+                                </div>
+                                <a href="/logout" class="text-white btn-logout bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Đăng xuất</a>`
+                            :
+                            `<div class="hidden sm:flex flex-row space-x-2">
+                                <div> 
+                                    <a href="/signup" data-navigo class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Sign Up</a>
+                                    <a href="/signin" data-navigo class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-2 py-2 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Sign In</a>
+                                </div>
+                            </div> `
+                        }
+                            
                         </div>
                         <div class="flex justify-center md:block" id='cart'>
                             <a class="relative text-gray-700 hover:text-gray-600" href="/cart">
@@ -47,6 +92,17 @@ const Header = {
             </nav>
         </div>    
         `
+    },
+    afterRender(){
+       const buttonLogout = document.querySelector('.btn-logout'); 
+       if(buttonLogout){
+        buttonLogout.addEventListener('click',(e) =>{
+            e.preventDefault();
+            localStorage.removeItem('user');
+            location = '/signin';
+            
+        })
+       }
     }
 }
 

@@ -14,7 +14,7 @@ const Books = {
             const items = await getAllCate();
             const { data } = await getAll();
             return /* html */ `
-            <div id="header">${Header.render()} </div>
+            <div id="header">${await Header.render()} </div>
             <div class="container mx-auto">
                 <main class = "px-10">
                     <div class="box">

@@ -17,3 +17,12 @@ export const signin = (users) => {
     const url = "/signin";
     return instance.post(url, users);
 }
+
+export const getMe = (id,token) => {
+    const url = `/600/users/${id}`;
+    return instance.get(url,{
+        headers : {
+            Authorization : `Bearer ${token}`
+        }
+    })
+}
